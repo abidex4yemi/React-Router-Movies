@@ -16,6 +16,8 @@ const SaveMovieButton = styled.div`
 	border: 1px solid grey;
 	padding: 5px 10px;
 	background-color: lightseagreen;
+	cursor: pointer;
+	transition: 0.2s;
 
 	&:hover {
 		background-color: green;

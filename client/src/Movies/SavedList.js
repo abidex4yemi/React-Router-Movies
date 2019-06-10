@@ -24,8 +24,12 @@ const SavedListStyles = styled.div`
 const Title = styled.div`margin: 0 10px;`;
 
 const BackHome = styled.div`
-	padding: 5px 10px;
-	background-color: lightskyblue;
+	a {
+		padding: 5px 10px;
+		background-color: #764abc;
+		color: #fff;
+		text-decoration: none;
+	}
 `;
 
 export const SavedList = props => {
@@ -50,9 +54,9 @@ export const SavedList = props => {
 					</NavLink>
 				);
 			})}
-			<Link to="/">
-				<BackHome>Home</BackHome>
-			</Link>
+			<BackHome>
+				<Link to="/">Home</Link>
+			</BackHome>
 		</SavedListStyles>
 	);
 };
