@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import { MovieCard } from './MovieCard';
+
+const MovieStyles = styled.div`
+	position: relative;
+	width: 75%;
+	margin: 1rem auto;
+`;
+
+const SaveMovieButton = styled.div`
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	border: 1px solid grey;
+	padding: 5px 10px;
+	background-color: lightseagreen;
+
+	&:hover {
+		background-color: green;
+		color: white;
+	}
+`;
 
 export default class Movie extends Component {
 	constructor(props) {
@@ -46,12 +67,10 @@ export default class Movie extends Component {
 		const { movie } = this.state;
 
 		return (
-			<div className="save-wrapper">
+			<MovieStyles>
 				<MovieCard movie={movie} />
-				<div className="save-button" onClick={this.saveMovie}>
-					Save
-				</div>
-			</div>
+				<SaveMovieButton onClick={this.saveMovie}>Save</SaveMovieButton>
+			</MovieStyles>
 		);
 	}
 }
