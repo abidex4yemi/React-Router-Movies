@@ -27,6 +27,8 @@ export default class App extends Component {
 
 	addToSavedList = movie => {
 		const { savedMovieList } = this.state;
+
+		// Get (id) of movie to be added
 		const movieToSaveId = movie.id;
 		const movieExist = savedMovieList.find(movie => movie.id === movieToSaveId);
 

@@ -25,6 +25,7 @@ const SaveMovieButton = styled.div`
 
 export default class Movie extends Component {
 	constructor(props) {
+		console.log('constructor....');
 		super(props);
 		this.state = {
 			movie: null
@@ -32,9 +33,11 @@ export default class Movie extends Component {
 	}
 
 	componentDidMount() {
-		// change this line to grab the id passed on the URL
-		const id = this.props.match.params.id;
+		console.log('componentDidMount....');
+		// Get (id) of the single movie to be displayed
+		const { id } = this.props.match.params;
 		this.fetchMovie(id);
+		console.log(this.state);
 	}
 
 	fetchMovie = id => {
@@ -44,10 +47,13 @@ export default class Movie extends Component {
 				this.setState(() => ({ movie: response.data }));
 			})
 			.catch(error => {
-				console.error(error);
+				return error;
 			});
 	};
 
+	// This React life cycle method will run after
+	// any time the component receive new prop and
+	// use it to set the movie state
 	componentWillReceiveProps(newProps) {
 		if (this.props.match.params.id !== newProps.match.params.id) {
 			this.fetchMovie(newProps.match.params.id);
@@ -60,6 +66,7 @@ export default class Movie extends Component {
 	};
 
 	render() {
+		// Runs if movie is null
 		if (!this.state.movie) {
 			return <div>Loading movie information...</div>;
 		}
