@@ -27,7 +27,7 @@ MovieCard.propTypes = {
 	movie: PropTypes.shape({
 		title: PropTypes.string.isRequired,
 		director: PropTypes.string.isRequired,
-		metascore: PropTypes.string.isRequired,
+		metascore: PropTypes.number.isRequired,
 		stars: PropTypes.array.isRequired
 	})
 };
