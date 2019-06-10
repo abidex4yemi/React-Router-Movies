@@ -25,7 +25,6 @@ const SaveMovieButton = styled.div`
 
 export default class Movie extends Component {
 	constructor(props) {
-		console.log('constructor....');
 		super(props);
 		this.state = {
 			movie: null
@@ -33,11 +32,9 @@ export default class Movie extends Component {
 	}
 
 	componentDidMount() {
-		console.log('componentDidMount....');
 		// Get (id) of the single movie to be displayed
 		const { id } = this.props.match.params;
 		this.fetchMovie(id);
-		console.log(this.state);
 	}
 
 	fetchMovie = id => {

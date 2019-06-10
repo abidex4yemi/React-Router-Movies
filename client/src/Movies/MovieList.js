@@ -23,7 +23,6 @@ export default class MovieList extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		const { movies } = this.state;
 
 		return (
